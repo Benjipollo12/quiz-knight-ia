@@ -1,0 +1,68 @@
+[
+  {
+    "question": "¿Qué algoritmo explora caminos profundizando primero?",
+    "options": [
+      "BFS",
+      "DFS",
+      "A*",
+      "Hill Climbing"
+    ],
+    "correctIndex": 1,
+    "explanation": "DFS explora un camino lo más profundo posible antes de retroceder."
+  },
+  {
+    "question": "¿Qué algoritmo usa una cola para explorar nodos por niveles?",
+    "options": [
+      "DFS",
+      "A*",
+      "BFS",
+      "Minimax"
+    ],
+    "correctIndex": 2,
+    "explanation": "BFS visita primero los nodos más cercanos al inicio."
+  },
+  {
+    "question": "¿Qué representa A* en IA?",
+    "options": [
+      "Algorithm of Search",
+      "Artificial Search",
+      "A Star",
+      "Adaptive System"
+    ],
+    "correctIndex": 2,
+    "explanation": "A* es el algoritmo de búsqueda informada más común para rutas óptimas."
+  },
+  {
+    "question": "¿Qué es una máquina de estados finitos?",
+    "options": [
+      "Un modelo con estados y transiciones",
+      "Un árbol de decisiones",
+      "Un conjunto de redes neuronales",
+      "Un algoritmo genético"
+    ],
+    "correctIndex": 0,
+    "explanation": "Una FSM define estados y condiciones para pasar de uno a otro."
+  },
+  {
+    "question": "¿Cuál de estas es una aplicación típica del árbol de decisión?",
+    "options": [
+      "Calcular ruta del personaje",
+      "Elegir acción según condiciones",
+      "Generar números aleatorios",
+      "Guardar archivos"
+    ],
+    "correctIndex": 1,
+    "explanation": "Los árboles de decisión toman decisiones según condiciones relevantes."
+  },
+  {
+    "question": "¿Qué ventaja tiene una búsqueda con heurística?",
+    "options": [
+      "Reduce tiempo de búsqueda al priorizar caminos prometedores",
+      "No necesita conocer el objetivo",
+      "Solo funciona con datos binarios",
+      "No se puede usar en videojuegos"
+    ],
+    "correctIndex": 0,
+    "explanation": "La heurística ayuda a elegir caminos más prometedores y optimizar la búsqueda."
+  }
+]

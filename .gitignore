@@ -1,0 +1,44 @@
+# This .gitignore file should be tailored to your Unity project.
+# It is based on the standard Unity .gitignore from GitHub.
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is no longer in the project.
+# It can be useful to keep meta files from regenerated assets.
+# [Aa]ssets/**/*.meta
+
+# Uncomment this line if you wish to ignore the default Unity generated .meta files.
+# *.meta
+
+# Unity generated folders and files
+UserSettings/
+Assets/AssetStoreTools*
+
+# Visual Studio / Rider generated files
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.VC.VC.db
+
+# OS generated files
+.DS_Store
+Thumbs.db

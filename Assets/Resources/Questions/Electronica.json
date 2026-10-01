@@ -1,0 +1,68 @@
+[
+  {
+    "question": "¿Qué componente se usa para convertir corriente alterna a continua?",
+    "options": [
+      "Capacitor",
+      "Rectificador",
+      "Inductor",
+      "Resistor"
+    ],
+    "correctIndex": 1,
+    "explanation": "El rectificador convierte corriente alterna a continua."
+  },
+  {
+    "question": "¿Qué dispositivo emite luz y se usa en muchos circuitos digitales?",
+    "options": [
+      "LED",
+      "Diodo zenner",
+      "Potenciómetro",
+      "Motor"
+    ],
+    "correctIndex": 0,
+    "explanation": "El LED es un diodo que emite luz cuando se polariza correctamente."
+  },
+  {
+    "question": "¿Qué es un condensador?",
+    "options": [
+      "Un componente que almacena energía eléctrica en un campo eléctrico",
+      "Un cable con aislamiento",
+      "Un transistor de potencia",
+      "Un sensor óptico"
+    ],
+    "correctIndex": 0,
+    "explanation": "El condensador almacena carga eléctrica temporalmente."
+  },
+  {
+    "question": "¿Qué magnitud se mide en amperios?",
+    "options": [
+      "Voltaje",
+      "Intensidad de corriente",
+      "Resistencia",
+      "Potencia"
+    ],
+    "correctIndex": 1,
+    "explanation": "La intensidad de corriente se mide en amperios."
+  },
+  {
+    "question": "¿Qué función cumplen los transistores?",
+    "options": [
+      "Almacenar energía",
+      "Amplificar o conmutar señales",
+      "Generar calor",
+      "Aumentar la resistencia"
+    ],
+    "correctIndex": 1,
+    "explanation": "Los transistores sirven para amplificar o conmutar señales eléctricas."
+  },
+  {
+    "question": "¿Qué significa PWM?",
+    "options": [
+      "Pulse Width Modulation",
+      "Power Wave Mode",
+      "Protocol Wireless Module",
+      "Primary Working Memory"
+    ],
+    "correctIndex": 0,
+    "explanation": "PWM significa Pulse Width Modulation, modulación por ancho de pulso."
+  }
+]

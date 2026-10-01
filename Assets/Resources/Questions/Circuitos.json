@@ -1,0 +1,68 @@
+[
+  {
+    "question": "¿Qué componente de un circuito limita el paso de la corriente?",
+    "options": [
+      "Resistencia",
+      "Fuente",
+      "Cable",
+      "Interruptor"
+    ],
+    "correctIndex": 0,
+    "explanation": "La resistencia reduce o limita la corriente en un circuito."
+  },
+  {
+    "question": "¿Qué es el voltaje?",
+    "options": [
+      "La energía consumida por un componente",
+      "La diferencia de potencial eléctrico",
+      "La intensidad de corriente",
+      "La velocidad de un transistor"
+    ],
+    "correctIndex": 1,
+    "explanation": "El voltaje es la diferencia de potencial entre dos puntos de un circuito."
+  },
+  {
+    "question": "¿Qué ocurre en un circuito en serie?",
+    "options": [
+      "La corriente se divide",
+      "La tensión se divide",
+      "Se conectan dos fuentes en paralelo",
+      "No existe resistencia"
+    ],
+    "correctIndex": 1,
+    "explanation": "En serie, la tensión se reparte entre los componentes."
+  },
+  {
+    "question": "¿Cuál es la unidad de la resistencia?",
+    "options": [
+      "Volt",
+      "Ampere",
+      "Ohm",
+      "Watt"
+    ],
+    "correctIndex": 2,
+    "explanation": "La resistencia se mide en ohmios (Ω)."
+  },
+  {
+    "question": "¿Qué componente permite controlar el flujo de corriente con un pulso?",
+    "options": [
+      "Condensador",
+      "Transistor",
+      "Motor",
+      "Led"
+    ],
+    "correctIndex": 1,
+    "explanation": "El transistor puede actuar como interruptor o amplificador controlado."
+  },
+  {
+    "question": "¿Qué representa la ley de Ohm?",
+    "options": [
+      "V = I * R",
+      "P = V / I",
+      "R = V / P",
+      "I = R * P"
+    ],
+    "correctIndex": 0,
+    "explanation": "La ley de Ohm establece V = I × R."
+  }
+]

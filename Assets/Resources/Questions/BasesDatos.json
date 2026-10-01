@@ -1,0 +1,68 @@
+[
+  {
+    "question": "¿Qué es una clave primaria en una base de datos?",
+    "options": [
+      "Un campo que identifica de forma única cada registro",
+      "Un campo vacío",
+      "Un índice temporal",
+      "Un tipo de relación"
+    ],
+    "correctIndex": 0,
+    "explanation": "La clave primaria identifica de forma única cada fila."
+  },
+  {
+    "question": "¿Qué significa SQL?",
+    "options": [
+      "Structured Query Language",
+      "Simple Query Logic",
+      "Storage Query List",
+      "System Query Link"
+    ],
+    "correctIndex": 0,
+    "explanation": "SQL significa Structured Query Language."
+  },
+  {
+    "question": "¿Qué comando se usa para extraer filas de una tabla?",
+    "options": [
+      "INSERT",
+      "UPDATE",
+      "SELECT",
+      "DELETE"
+    ],
+    "correctIndex": 2,
+    "explanation": "SELECT se usa para consultar registros."
+  },
+  {
+    "question": "¿Qué es una base de datos relacional?",
+    "options": [
+      "Una colección de tablas relacionadas",
+      "Un archivo de texto plano",
+      "Una imagen del sistema",
+      "Una lista de carpetas"
+    ],
+    "correctIndex": 0,
+    "explanation": "Las bases de datos relacionales estructuran la información en tablas con relaciones."
+  },
+  {
+    "question": "¿Qué hace el comando INSERT?",
+    "options": [
+      "Borra registros",
+      "Actualiza registros",
+      "Inserta nuevos datos",
+      "Crea una relación"
+    ],
+    "correctIndex": 2,
+    "explanation": "INSERT añade nuevos registros a una tabla."
+  },
+  {
+    "question": "¿Qué es una clave foránea?",
+    "options": [
+      "Un valor que referencia la clave primaria de otra tabla",
+      "Un campo aleatorio",
+      "Una columna de texto sin uso",
+      "La tabla principal"
+    ],
+    "correctIndex": 0,
+    "explanation": "La clave foránea establece una relación entre tablas."
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "question": "¿Qué protocolo se usa principalmente para acceder a páginas web?",
+    "options": [
+      "FTP",
+      "HTTP",
+      "SMTP",
+      "SSH"
+    ],
+    "correctIndex": 1,
+    "explanation": "HTTP es el protocolo principal para transferir páginas web."
+  },
+  {
+    "question": "¿Qué capa del modelo OSI se encarga del enrutamiento?",
+    "options": [
+      "Capa de aplicación",
+      "Capa de transporte",
+      "Capa de red",
+      "Capa física"
+    ],
+    "correctIndex": 2,
+    "explanation": "La capa de red gestiona el enrutamiento y la direccionamiento lógico."
+  },
+  {
+    "question": "¿Qué significa IP?",
+    "options": [
+      "Internet Protocol",
+      "Internal Port",
+      "Internet Packet",
+      "Interface Path"
+    ],
+    "correctIndex": 0,
+    "explanation": "IP significa Internet Protocol."
+  },
+  {
+    "question": "¿Qué dispositivo conecta varias redes?",
+    "options": [
+      "Switch",
+      "Router",
+      "Hub",
+      "Repeater"
+    ],
+    "correctIndex": 1,
+    "explanation": "El router conecta distintas redes y direcciona tráfico entre ellas."
+  },
+  {
+    "question": "¿Qué puerto suele usar HTTPS?",
+    "options": [
+      "80",
+      "21",
+      "443",
+      "25"
+    ],
+    "correctIndex": 2,
+    "explanation": "HTTPS suele usar el puerto 443."
+  },
+  {
+    "question": "¿Qué es una dirección MAC?",
+    "options": [
+      "Una dirección lógica",
+      "Una dirección física del NIC",
+      "Un nombre de usuario",
+      "Un puerto de servicio"
+    ],
+    "correctIndex": 1,
+    "explanation": "La MAC es la dirección identificadora física de la interfaz de red."
+  }
+]

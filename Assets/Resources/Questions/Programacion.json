@@ -1,0 +1,68 @@
+[
+  {
+    "question": "¿Qué estructura se usa para repetir instrucciones mientras una condición se cumpla?",
+    "options": [
+      "Bucle o while",
+      "if",
+      "switch",
+      "array"
+    ],
+    "correctIndex": 0,
+    "explanation": "El bucle while ejecuta instrucciones mientras la condición siga siendo verdadera."
+  },
+  {
+    "question": "¿Qué palabra reservada se usa para crear una función en C#?",
+    "options": [
+      "method",
+      "function",
+      "void",
+      "return"
+    ],
+    "correctIndex": 2,
+    "explanation": "void se usa para definir un método que no devuelve ningún valor."
+  },
+  {
+    "question": "¿Cuál es la diferencia principal entre una clase y un objeto?",
+    "options": [
+      "Una clase es la plantilla y un objeto es una instancia",
+      "Un objeto es una variable de tipo entero",
+      "Una clase no puede tener métodos",
+      "Un objeto no puede almacenar datos"
+    ],
+    "correctIndex": 0,
+    "explanation": "La clase define la estructura y el objeto es una instancia concreta de esa clase."
+  },
+  {
+    "question": "¿Qué significa el operador == en C#?",
+    "options": [
+      "Asignación",
+      "Comparación",
+      "Incremento",
+      "Negación"
+    ],
+    "correctIndex": 1,
+    "explanation": "== compara dos valores y devuelve verdadero o falso."
+  },
+  {
+    "question": "¿Cuál es la forma correcta de declarar una lista de enteros en C#?",
+    "options": [
+      "List<int> numeros;",
+      "list<int> numeros;",
+      "List numeros;",
+      "int[] numeros;"
+    ],
+    "correctIndex": 0,
+    "explanation": "List<int> es la forma genérica para trabajar con listas."
+  },
+  {
+    "question": "¿Qué tipo de dato es boolean?",
+    "options": [
+      "Texto",
+      "Numérico decimal",
+      "Lógico",
+      "Carácter"
+    ],
+    "correctIndex": 2,
+    "explanation": "boolean almacena valores true o false."
+  }
+]
