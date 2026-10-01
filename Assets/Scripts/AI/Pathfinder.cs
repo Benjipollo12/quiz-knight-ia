@@ -16,7 +16,7 @@ namespace QuizKnightIA.AI
 
             while (stack.Count > 0)
             {
-                string current = stack.Pop();
+                var current = stack.Pop();
                 if (current == goal)
                 {
                     break;
@@ -52,7 +52,7 @@ namespace QuizKnightIA.AI
 
             while (queue.Count > 0)
             {
-                string current = queue.Dequeue();
+                var current = queue.Dequeue();
                 if (current == goal)
                 {
                     break;
@@ -79,16 +79,15 @@ namespace QuizKnightIA.AI
 
         public static List<string> AStar(Dictionary<string, List<string>> graph, string start, string goal)
         {
-            var openSet = new PriorityQueue<string, int>();
+            var open = new List<string> { start };
             var cameFrom = new Dictionary<string, string>();
             var gScore = new Dictionary<string, int> { [start] = 0 };
-            var fScore = new Dictionary<string, int> { [start] = Heuristic(start, goal) };
 
-            openSet.Enqueue(start, fScore[start]);
-
-            while (openSet.Count > 0)
+            while (open.Count > 0)
             {
-                string current = openSet.Dequeue();
+                var current = open[0];
+                open.RemoveAt(0);
+
                 if (current == goal)
                 {
                     break;
@@ -101,15 +100,14 @@ namespace QuizKnightIA.AI
 
                 foreach (var neighbor in graph[current])
                 {
-                    int tentativeScore = gScore[current] + 1;
-                    if (!gScore.ContainsKey(neighbor) || tentativeScore < gScore[neighbor])
+                    var tentative = gScore[current] + 1;
+                    if (!gScore.ContainsKey(neighbor) || tentative < gScore[neighbor])
                     {
                         cameFrom[neighbor] = current;
-                        gScore[neighbor] = tentativeScore;
-                        fScore[neighbor] = tentativeScore + Heuristic(neighbor, goal);
-                        if (!openSet.UnorderedItems.Any(item => item.Element == neighbor))
+                        gScore[neighbor] = tentative;
+                        if (!open.Contains(neighbor))
                         {
-                            openSet.Enqueue(neighbor, fScore[neighbor]);
+                            open.Add(neighbor);
                         }
                     }
                 }
@@ -118,25 +116,20 @@ namespace QuizKnightIA.AI
             return ReconstructPath(cameFrom, start, goal);
         }
 
-        private static int Heuristic(string node, string goal)
-        {
-            return Mathf.Abs(node.Length - goal.Length);
-        }
-
-        private static List<string> ReconstructPath(Dictionary<string, string> cameFrom, string start, string goal)
+        private static List<string> ReconstructPath(Dictionary<string, string> path, string start, string goal)
         {
             var result = new List<string>();
-            string current = goal;
+            var current = goal;
 
             while (current != start)
             {
                 result.Add(current);
-                if (!cameFrom.ContainsKey(current))
+                if (!path.ContainsKey(current))
                 {
                     return new List<string> { start, goal };
                 }
 
-                current = cameFrom[current];
+                current = path[current];
             }
 
             result.Add(start);

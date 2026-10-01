@@ -21,16 +21,6 @@ namespace QuizKnightIA.Gameplay
             return zones;
         }
 
-        public static List<string> GeneratePathWithDFS(Dictionary<string, List<string>> graph, string start, string goal)
-        {
-            return Pathfinder.DepthFirstSearch(graph, start, goal);
-        }
-
-        public static List<string> GeneratePathWithBFS(Dictionary<string, List<string>> graph, string start, string goal)
-        {
-            return Pathfinder.BreadthFirstSearch(graph, start, goal);
-        }
-
         private static void Shuffle<T>(IList<T> list)
         {
             for (int i = list.Count - 1; i > 0; i--)

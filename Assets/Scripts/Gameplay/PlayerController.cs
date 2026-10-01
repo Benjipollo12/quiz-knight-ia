@@ -39,7 +39,7 @@ namespace QuizKnightIA.Controllers
 
         public void BasicAttack()
         {
-            if (!canAttack)
+            if (!canAttack || GameManager.Instance == null || GameManager.Instance.state != GameManager.GameState.Playing)
             {
                 return;
             }
@@ -84,7 +84,10 @@ namespace QuizKnightIA.Controllers
             currentHealth = Mathf.Max(0, currentHealth - damage);
             if (currentHealth <= 0)
             {
-                GameManager.Instance.TriggerGameOver();
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.TriggerGameOver();
+                }
             }
         }
 

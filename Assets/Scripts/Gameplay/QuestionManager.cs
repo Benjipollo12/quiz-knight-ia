@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 namespace QuizKnightIA.Gameplay
@@ -25,14 +24,17 @@ namespace QuizKnightIA.Gameplay
 
         public void LoadQuestions()
         {
-            string[] files = Directory.GetFiles(Path.Combine(Application.dataPath, "Resources/Questions"), "*.json");
-
-            foreach (var file in files)
+            string[] keys = { "Programacion", "Circuitos", "Redes", "BasesDatos", "Electronica", "IA" };
+            foreach (var key in keys)
             {
-                string raw = File.ReadAllText(file);
-                var questions = JsonHelper.FromJson<QuestionData>(raw);
-                string key = Path.GetFileNameWithoutExtension(file);
-                questionPool[key] = new List<QuestionData>(questions);
+                TextAsset asset = Resources.Load<TextAsset>("Questions/" + key);
+                if (asset == null)
+                {
+                    continue;
+                }
+
+                var items = JsonUtility.FromJson<QuestionList>("{\"items\":" + asset.text + "}").items;
+                questionPool[key] = new List<QuestionData>(items);
             }
         }
 
@@ -46,49 +48,38 @@ namespace QuizKnightIA.Gameplay
             List<QuestionData> pool = questionPool[category];
             int index = Random.Range(0, pool.Count);
             var selected = pool[index];
-            string key = category + selected.question;
+            string marker = category + selected.question;
 
-            if (usedQuestions.Contains(key) && pool.Count > 1)
+            if (usedQuestions.Contains(marker) && pool.Count > 1)
             {
                 for (int i = 0; i < pool.Count; i++)
                 {
                     var candidate = pool[(index + i + 1) % pool.Count];
-                    string candidateKey = category + candidate.question;
-                    if (!usedQuestions.Contains(candidateKey))
+                    string candidateMarker = category + candidate.question;
+                    if (!usedQuestions.Contains(candidateMarker))
                     {
-                        usedQuestions.Add(candidateKey);
+                        usedQuestions.Add(candidateMarker);
                         return candidate;
                     }
                 }
             }
 
-            usedQuestions.Add(key);
+            usedQuestions.Add(marker);
             return selected;
         }
 
         public void RegisterAnswer(bool correct)
         {
-            GameManager.Instance.RegisterAnswer(correct);
-        }
-    }
-
-    public static class JsonHelper
-    {
-        public static T[] FromJson<T>(string json)
-        {
-            string wrapped = json.Trim();
-            if (wrapped.StartsWith("[") && wrapped.EndsWith("]"))
+            if (GameManager.Instance != null)
             {
-                return JsonUtility.FromJson<Wrapper<T>>("{\"Items\":" + wrapped + "}").Items;
+                GameManager.Instance.RegisterAnswer(correct);
             }
-
-            return new T[] { JsonUtility.FromJson<T>(wrapped) };
         }
 
         [System.Serializable]
-        private class Wrapper<T>
+        private class QuestionList
         {
-            public T[] Items;
+            public QuestionData[] items;
         }
     }
 }

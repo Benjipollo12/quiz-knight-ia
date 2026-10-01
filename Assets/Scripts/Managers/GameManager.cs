@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace QuizKnightIA.Controllers
@@ -8,6 +5,13 @@ namespace QuizKnightIA.Controllers
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
+
+        public enum GameState
+        {
+            Idle,
+            Playing,
+            GameOver
+        }
 
         [Header("Player Stats")]
         public int maxPlayerHealth = 50;
@@ -17,7 +21,7 @@ namespace QuizKnightIA.Controllers
         public int maxQuestionHearts = 3;
         public int currentQuestionHearts = 3;
 
-        [Header("Runtime Stats")]
+        [Header("Debug Stats")]
         public int bossesDefeated;
         public int zonesReached;
         public int questionsCorrect;
@@ -25,8 +29,7 @@ namespace QuizKnightIA.Controllers
         public float totalPlayTime;
         public int totalScore;
 
-        public List<string> zoneOrder = new List<string>();
-        public int currentZoneIndex;
+        public GameState state = GameState.Idle;
 
         private void Awake()
         {
@@ -43,10 +46,13 @@ namespace QuizKnightIA.Controllers
 
         private void Update()
         {
-            totalPlayTime += Time.deltaTime;
+            if (state == GameState.Playing)
+            {
+                totalPlayTime += Time.deltaTime;
+            }
         }
 
-        public void InitializeRun()
+        public void StartGame()
         {
             currentPlayerHealth = maxPlayerHealth;
             bossesDefeated = 0;
@@ -55,15 +61,16 @@ namespace QuizKnightIA.Controllers
             totalScore = 0;
             totalPlayTime = 0f;
             currentQuestionHearts = maxQuestionHearts;
-            zoneOrder = LevelGenerator.GenerateZoneOrder();
-            currentZoneIndex = 0;
+            state = GameState.Playing;
             zonesReached = 1;
+            Debug.Log("Partida iniciada.");
         }
 
         public void RegisterBossDefeat()
         {
             bossesDefeated++;
             totalScore += 150;
+            Debug.Log("Jefe derrotado.");
         }
 
         public void RegisterAnswer(bool correct)
@@ -92,8 +99,13 @@ namespace QuizKnightIA.Controllers
 
         public void TriggerGameOver()
         {
-            UIManager.Instance.ShowGameOverPanel();
+            state = GameState.GameOver;
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.ShowGameOverPanel();
+            }
             Time.timeScale = 0f;
+            Debug.Log("Game Over.");
         }
 
         public void Heal(int amount)

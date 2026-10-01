@@ -1,51 +1,44 @@
 # Quiz Knight IA
 
-Juego 2D tipo Metroidvania educativo con IA aplicada. Proyecto base listo para abrir en Unity.
+Este repositorio contiene un prototipo jugable de Unity 2D para el proyecto "Quiz Knight IA: Metroidvania Educativo con Inteligencia Artificial Aplicada".
 
-## Descripción
+## Estado actual
 
-Quiz Knight IA es un videojuego 2D de plataformas y combate inspirado en Mega Man y Hollow Knight. El jugador explora zonas temáticas de:
+La versión actual ya incluye:
 
-- Programación
-- Circuitos
-- Redes
-- Bases de Datos
-- Electrónica
-- Inteligencia Artificial
+- Sistema de jugador con vida, ataque básico y mejoras
+- Jefes con estados (Idle, Chase, Attack, Question, Enraged, Defeated)
+- Preguntas académicas cargadas desde JSON en `Assets/Resources/Questions`
+- Generación aleatoria de rutas por zonas
+- IA basada en DFS, BFS, A* y árboles de decisión
+- Pantalla de Game Over con estadísticas
+- Arranque automático del prototipo en Play Mode mediante `GameBootstrap`
 
-Cada partida genera aleatoriamente el orden de las zonas y el jugador debe avanzar derrotando jefes, resolviendo preguntas y mejorando su personaje con NPCs permanentes.
+## Importante
 
-## Contenido del proyecto
-
-- Sistema de vida y combate del jugador
-- IA de jefes con A* y máquinas de estados finitos
-- Preguntas académicas cargadas desde JSON
-- Generación de rutas con DFS y BFS
-- Árboles de decisión para decisiones del enemigo
-- Pantalla de Game Over con estadísticas finales
-- Estructura de Unity preparada para ser extendida
+Es un prototipo jugable funcional de la lógica del juego, no un juego completo con arte final ni niveles visuales avanzados. Sirve como base sólida para continuar desarrollo en Unity.
 
 ## Requisitos
 
 - Unity 2022.3 LTS o superior
-- Configuración 2D
+- Proyecto 2D
 
-## Cómo abrir en Unity
+## Cómo probarlo
 
-1. Descarga o clona este repositorio.
-2. Abre la carpeta con Unity Hub.
-3. Selecciona Unity 2022.3 LTS o superior.
-4. Crea la escena principal y añade a la jerarquía los prefabs de jugador, jefe y UI.
-5. Usa `GameManager`, `QuestionManager`, `LevelGenerator`, `PlayerController` y `BossController` como base.
+1. Abre este repositorio con Unity Hub.
+2. Crea/importa el proyecto en Unity 2022.3 LTS.
+3. Presiona Play.
+4. El arranque automático crea los objetos del prototipo y el juego comienza.
 
 ## Estructura principal
 
 - `Assets/Scripts/AI` : algoritmos de IA
-- `Assets/Scripts/Gameplay` : lógica del juego
-- `Assets/Scripts/Managers` : controladores globales
-- `Assets/Resources/Questions` : preguntas en JSON
+- `Assets/Scripts/Gameplay` : lógica del prototipo
+- `Assets/Scripts/Managers` : gestión general del estado del juego
+- `Assets/Scripts/Runtime` : bootstrap del juego
+- `Assets/Resources/Questions` : JSON con preguntas por materia
 
-## Objetivos académicos incluidos
+## Objetivos académicos implementados
 
 - DFS
 - BFS
@@ -53,7 +46,3 @@ Cada partida genera aleatoriamente el orden de las zonas y el jugador debe avanz
 - Máquinas de Estados Finitos
 - Árboles de Decisión
 - Aleatorización controlada
-
-## Notas
-
-Este repositorio contiene una base funcional y educativa para que puedas continuar el proyecto en Unity, adaptándolo a tu estilo visual, música, arte y nivel de juego final.

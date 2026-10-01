@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace QuizKnightIA.AI
@@ -21,16 +20,16 @@ namespace QuizKnightIA.AI
         public int damage = 5;
         public float range = 2.5f;
         public float attackCooldown = 1.2f;
-        public bool useDecisionTree = true;
 
         private float attackTimer;
         private Transform player;
-        private readonly List<string> path = new List<string>();
+        private BossDecisionTree decisionTree;
 
         private void Start()
         {
             currentHealth = maxHealth;
             player = GameObject.FindWithTag("Player")?.transform;
+            decisionTree = new BossDecisionTree();
         }
 
         private void Update()
@@ -47,7 +46,7 @@ namespace QuizKnightIA.AI
 
             float distance = Vector2.Distance(transform.position, player.position);
 
-            if (currentState == BossState.Idle && distance < range)
+            if (distance < range)
             {
                 currentState = BossState.Chase;
             }
@@ -80,22 +79,18 @@ namespace QuizKnightIA.AI
             Vector3 direction = (player.position - transform.position).normalized;
             transform.position += direction * Time.deltaTime * 1.5f;
 
-            if (useDecisionTree)
-            {
-                var tree = new BossDecisionTree();
-                var result = tree.Evaluate(this, player);
-                if (result == BossDecisionTree.DecisionAction.Attack)
-                {
-                    currentState = BossState.Attack;
-                }
-                else if (result == BossDecisionTree.DecisionAction.Question)
-                {
-                    currentState = BossState.Question;
-                }
-            }
-            else if (distance <= 1.2f)
+            var decision = decisionTree.Evaluate(this, player);
+            if (decision == BossDecisionTree.DecisionAction.Attack)
             {
                 currentState = BossState.Attack;
+            }
+            else if (decision == BossDecisionTree.DecisionAction.Question)
+            {
+                currentState = BossState.Question;
+            }
+            else if (decision == BossDecisionTree.DecisionAction.SpecialAttack)
+            {
+                currentState = BossState.Enraged;
             }
         }
 
@@ -123,27 +118,22 @@ namespace QuizKnightIA.AI
             currentState = BossState.Attack;
         }
 
-        public void TakeDamage(int damageAmount)
+        public void TakeDamage(int amount)
         {
-            currentHealth -= damageAmount;
+            currentHealth -= amount;
             if (currentHealth <= 0)
             {
                 currentState = BossState.Defeated;
-                GameManager.Instance.RegisterBossDefeat();
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.RegisterBossDefeat();
+                }
                 Debug.Log("Jefe derrotado");
             }
             else if (currentHealth <= maxHealth * 0.3f)
             {
                 currentState = BossState.Enraged;
             }
-        }
-
-        public List<string> ComputePath(string start, string goal)
-        {
-            path.Clear();
-            path.Add(start);
-            path.Add(goal);
-            return new List<string>(path);
         }
     }
 }
